@@ -7,7 +7,7 @@ import {IPage} from './BaseDicOps';
 
 export interface IBaseDicService<T, E extends T = T> {
     // 查询
-    onQuery(queryParams: any & IPage): Observable<Array<E>>;
+    onQuery(queryParams: any & IPage): Observable<Array<E|T>>;
 
     // 查询总数
     onQueryTotal(queryParams: any ): Observable<number>;

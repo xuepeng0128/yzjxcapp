@@ -11,7 +11,7 @@ import {PayKindService} from '../service/pay-kind.service';
 })
 export class PayKindComponent extends BaseDicOps<IPayKind, IPayKind> implements OnInit  {
 
-  constructor(private paykindsvr: PayKindService, private message: NzMessageService ) {
+  constructor(private paykindsvr: PayKindService, public message: NzMessageService ) {
     super(paykindsvr, message);
   }
   ngOnInit() {
