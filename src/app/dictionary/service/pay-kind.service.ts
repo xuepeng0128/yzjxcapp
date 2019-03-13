@@ -2,20 +2,20 @@ import { Injectable } from '@angular/core';
 import {IBaseDicService} from '../../shared/IBaseDicService';
 import {Observable} from 'rxjs';
 import {IPage} from '../../shared/BaseDicOps';
-import {IPayKind} from '../../entity/IPayKind';
+import {PayKind} from '../../entity/PayKind';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PayKindService implements IBaseDicService<IPayKind, IPayKind> {
+export class PayKindService implements IBaseDicService<PayKind, PayKind> {
 
   constructor() { }
 
-  onDelete(arg: IPayKind): Observable<boolean> {
+  onDelete(arg: PayKind): Observable<boolean> {
     return undefined;
   }
 
-  onInsert(arg: IPayKind): Observable<boolean> {
+  onInsert(arg: PayKind): Observable<boolean> {
     return undefined;
   }
 
@@ -25,11 +25,11 @@ export class PayKindService implements IBaseDicService<IPayKind, IPayKind> {
     return undefined;
   }
 
-  onUpdate(arg: IPayKind): Observable<boolean> {
+  onUpdate(arg: PayKind): Observable<boolean> {
     return undefined;
   }
 
-  onQuery(queryParams: & IPage): Observable<Array<IPayKind>> {
+  onQuery(queryParams: & IPage): Observable<Array<PayKind>> {
     return undefined;
   }
 }

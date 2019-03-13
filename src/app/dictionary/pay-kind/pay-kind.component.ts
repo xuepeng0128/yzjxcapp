@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BaseDicOps} from '../../shared/BaseDicOps';
-import {IPayKind} from '../../entity/IPayKind';
+import {PayKind} from '../../entity/PayKind';
 import {NzMessageService} from 'ng-zorro-antd';
 import {PayKindService} from '../service/pay-kind.service';
 
@@ -9,7 +9,7 @@ import {PayKindService} from '../service/pay-kind.service';
   templateUrl: './pay-kind.component.html',
   styleUrls: ['./pay-kind.component.css']
 })
-export class PayKindComponent extends BaseDicOps<IPayKind, IPayKind> implements OnInit  {
+export class PayKindComponent extends BaseDicOps<PayKind, PayKind> implements OnInit  {
 
   constructor(private paykindsvr: PayKindService, public message: NzMessageService ) {
     super(paykindsvr, message);

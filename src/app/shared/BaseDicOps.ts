@@ -3,7 +3,7 @@ import {MSG_DELETE_ERROR, MSG_DELETE_SUCCESS, MSG_SAVE_ERROR, MSG_SAVE_SUCCESS} 
 import {iif, Observable, of} from 'rxjs';
 import {IBaseDicService} from './IBaseDicService';
 import {flatMap, map} from 'rxjs/operators';
-import {IPayKind} from '../entity/IPayKind';
+import {PayKind} from '../entity/PayKind';
 
 export interface IPage {
     pageSize: number;
@@ -17,7 +17,7 @@ export abstract class BaseDicOps<T, E extends T= T> {
     total$: Observable<number>;
     saveLoading$: Observable<boolean>;
     deleteLoading$: Observable<boolean>;
-    constructor(private dicSvr: any & IBaseDicService<IPayKind, IPayKind>, public message: NzMessageService  ) {
+    constructor(private dicSvr: any & IBaseDicService<PayKind, PayKind>, public message: NzMessageService  ) {
     }
     protected queryList = () => {
         this.dicList$ = this.dicSvr.onQuery(this.queryParams);
