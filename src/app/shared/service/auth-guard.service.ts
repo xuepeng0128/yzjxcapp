@@ -9,11 +9,14 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
 
   constructor() { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    if (!this.usersvr.IsAuthenticated()) {
+      this.router.navigate(['/account/signin']);
+    }
     return true;
   }
 
-  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot):  boolean  {
+    return this.canActivate(childRoute, state);
   }
 }
