@@ -7,7 +7,7 @@ export class User {
   isManager: boolean; // 是否为管理员
   memo: string ; // 备注
   employee: Employee;
-  constructor(options: {userId: string, userName: string, passWord: string, isManager: boolean, memo: string, employee: Employee}= {}) {
+  constructor(options: {userId?: string, userName?: string, passWord?: string, isManager?: boolean, memo?: string, employee?: Employee}= {}) {
     this.userId = options.userId;
     this.userName = options.userName;
     this.passWord = options.passWord;

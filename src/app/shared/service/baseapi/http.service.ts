@@ -3,8 +3,7 @@ import {BehaviorSubject, Observable, of, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError, delay, map} from 'rxjs/internal/operators';
 import {UserStorageService} from './user-storage.service';
-import {User} from '../../entity/User';
-declare var globalParams: any;
+import {User} from '../../../entity/User';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
@@ -41,7 +40,7 @@ export class HttpService {
     }
 
 
-    return this.httpclient.get<any>(  globalParams.serverBaseUrl + url + paramData) // globalParams.serverBaseUrl +
+    return this.httpclient.get<any>(   url + paramData) // globalParams.serverBaseUrl +
       .pipe(
         map(re => {
            return re;
@@ -52,7 +51,7 @@ export class HttpService {
 
 // post 方法
   public onHttpPost = (url: string , queryParams: any): Observable<any> => {
-    return this.httpclient.post<any>(globalParams.serverBaseUrl + url, queryParams, httpOptions) // globalParams.serverBaseUrl +
+    return this.httpclient.post<any>( url, queryParams, httpOptions) // globalParams.serverBaseUrl +
       .pipe(
         map(re => {
           return re;
@@ -79,50 +78,5 @@ export class HttpService {
   }
 
 
-
-  // ---------------------- 外部接口------------------------//
-
-
-  // get  方法获取所有设备
-  public  onHttpGetFromIdCard_All_Devices = (url: string): Observable<any> => {
-    return this.httpclient.get<any>(globalParams.idcardDeviceRequestUrl + url )
-      .pipe(
-        map(re => {
-          return re;
-        }),
-        catchError(this.handleError)
-      );
-  }
-  // get  方法获取所有企业
-  public  onHttpGetFromIdCard_All_Enterprise  = (url: string, systemId: string): Observable<any> => {
-    return this.httpclient.get<any>(globalParams.idcardDeviceRequestUrl + url + '?systemId=' + (systemId || '') )
-      .pipe(
-        map(re => {
-          return re;
-        }),
-        catchError(this.handleError)
-      );
-  }
-
-  // get  方法获取人脸外接数据
-  public  onHttpGetFromIdCard = (url: string): Observable<any> => {
-    return this.httpclient.get<any>(globalParams.idcardDeviceRequestUrl + url )
-      .pipe(
-        map(re => {
-          return re;
-        }),
-        catchError(this.handleError)
-      );
-  }
- // post 方法 获取人脸数据
-  public onHttpPostFromIdCard = (url: string , queryParams: any): Observable<any> => {
-    return this.httpclient.post<any>(globalParams.idcardDeviceRequestUrl + url, queryParams, httpOptions )
-      .pipe(
-        map(re => {
-          return re;
-        }),
-        catchError(this.handleError)
-      );
-  }
 
 }
