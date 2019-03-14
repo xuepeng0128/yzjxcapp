@@ -8,11 +8,11 @@ export class User {
   memo: string ; // 备注
   employee: Employee;
   constructor(options: {userId?: string, userName?: string, passWord?: string, isManager?: boolean, memo?: string, employee?: Employee}= {}) {
-    this.userId = options.userId;
-    this.userName = options.userName;
-    this.passWord = options.passWord;
-    this.isManager = options.isManager;
-    this.memo = options.memo;
+    this.userId = options.userId || '';
+    this.userName = options.userName || '';
+    this.passWord = options.passWord || '';
+    this.isManager = options.isManager || false;
+    this.memo = options.memo || '';
     this.employee = options.employee ;
   }
 }
