@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PayKindComponent } from './pay-kind.component';
+import { BlankSelectComponent } from './blank-select.component';
 
-describe('PayKindComponent', () => {
-  let component: PayKindComponent;
-  let fixture: ComponentFixture<PayKindComponent>;
+describe('BlankSelectComponent', () => {
+  let component: BlankSelectComponent;
+  let fixture: ComponentFixture<BlankSelectComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PayKindComponent ]
+      declarations: [ BlankSelectComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PayKindComponent);
+    fixture = TestBed.createComponent(BlankSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

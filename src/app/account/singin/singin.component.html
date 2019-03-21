@@ -24,7 +24,7 @@
 
       <nz-form-item class="m-t-lg">
         <nz-form-control>
-          <button  class="login-form-button"  nz-button  nzType="primary" [disabled]="user.userId==''"  [nzLoading]="validate$ |async" (click)="onLogin()"  >登录</button>
+          <button  class="login-form-button"  nz-button  nzType="primary" [disabled]="user.userId==''"  [nzLoading]="loading" (click)="onLogin()"  >登录</button>
         </nz-form-control>
       </nz-form-item>
     </form>

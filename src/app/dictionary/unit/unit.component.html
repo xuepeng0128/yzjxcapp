@@ -1,0 +1,9 @@
+<div nz-row>
+  <div nz-col [nzSpan]="24" class="text-center">
+
+    <a href="javaScript:;" class="ant-btn ant-btn-primary ant-btn-xs m-l-xs" (click)=" super.queryList()" >导出Excel</a>
+  </div>
+</div>
+<div nz-row>
+  {{dicList$|async}}
+</div>

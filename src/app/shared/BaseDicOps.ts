@@ -1,7 +1,7 @@
 import {NzMessageService} from 'ng-zorro-antd';
 import {MSG_DELETE_ERROR, MSG_DELETE_SUCCESS, MSG_SAVE_ERROR, MSG_SAVE_SUCCESS} from './SysMessage';
 import {iif, Observable, of} from 'rxjs';
-import {IBaseDicService} from './IBaseDicService';
+import {IBaseOpsService} from './IBaseOpsService';
 import {flatMap, map} from 'rxjs/operators';
 import {PayKind} from '../entity/PayKind';
 
@@ -17,7 +17,7 @@ export abstract class BaseDicOps<T, E extends T= T> {
     total$: Observable<number>;
     saveLoading$: Observable<boolean>;
     deleteLoading$: Observable<boolean>;
-    constructor(private dicSvr: any & IBaseDicService<PayKind, PayKind>, public message: NzMessageService  ) {
+    constructor(private dicSvr: any & IBaseOpsService<PayKind, PayKind>, public message: NzMessageService  ) {
     }
     protected queryList = () => {
         this.dicList$ = this.dicSvr.onQuery(this.queryParams);

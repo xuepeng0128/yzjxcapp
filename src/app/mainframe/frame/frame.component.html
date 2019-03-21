@@ -10,7 +10,7 @@
           <span title><i class="anticon anticon-profile" [routerLink]="menu.url"></i>{{menu.menuName}}</span>
           <ul>
             <!--<li nz-menu-item *ngFor="let submenu of menu.subMenus" [routerLink]="submenu.url" [queryParams]="{power : submenu.opPower}"  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" (click)="pareMenuName=menu.menuName;subMenuName=submenu.menuName;">{{submenu.menuName}}</li>-->
-            <li nz-menu-item *ngFor="let submenu of menu.subMenus"  >
+            <li nz-menu-item *ngFor="let submenu of menu.subMenu"  >
               <a [routerLink]="submenu.url" [queryParams]="{power : submenu.powers}"  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" (click)="pareMenuName=menu.menuName;subMenuName=submenu.menuName;">{{submenu.menuName}}</a>
             </li>
           </ul>
@@ -23,9 +23,9 @@
         <nz-breadcrumb-item>{{subMenuName}}</nz-breadcrumb-item>
       </nz-breadcrumb>
       <nz-content style="background:#fff; padding: 24px;overflow: scroll" [ngStyle]="{'height':clientHeight +'px'}">
-
-        <router-outlet #routerOutlet="outlet"></router-outlet>
-
+        <nz-spin class="tip" [nzSize]="'large'" [nzTip]="'数据交互中...'" [nzDelay]="100" [nzSpinning]="loading">
+            <router-outlet></router-outlet>
+        </nz-spin>
       </nz-content>
     </nz-layout>
   </nz-layout>

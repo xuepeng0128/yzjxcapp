@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PayKindService } from './pay-kind.service';
+import { UnitService } from './unit.service';
 
-describe('PayKindService', () => {
+describe('UnitService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PayKindService = TestBed.get(PayKindService);
+    const service: UnitService = TestBed.get(UnitService);
     expect(service).toBeTruthy();
   });
 });

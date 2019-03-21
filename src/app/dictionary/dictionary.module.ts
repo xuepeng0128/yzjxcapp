@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DictionaryRoutingModule } from './dictionary-routing.module';
-import { PayKindComponent } from './pay-kind/pay-kind.component';
+import { UnitComponent } from './unit/unit.component';
 
 @NgModule({
-  declarations: [PayKindComponent],
+  declarations: [ UnitComponent],
   imports: [
     CommonModule,
     DictionaryRoutingModule
