@@ -3,11 +3,11 @@
  *
  */
 import {Observable} from 'rxjs';
-import {IPage} from './BaseDicOps';
 
-export interface IBaseOpsService<T, E extends T = T> {
+
+export interface IBaseOpsService<T, E> {
     // 查询
-    onQuery(queryParams: any ): Observable<Array<E|T>>;
+    onQuery(queryParams: any ): Observable<Array<E>>;
 
     // 明细
     onDetail(arg: T|E) ;

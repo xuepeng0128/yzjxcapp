@@ -10,12 +10,12 @@ export interface OpsUrl {
     deleteUrl: string;
 }
 
-export abstract  class DicBaseOps implements  IBaseOpsService<T, E  > {
-  protected opsUrl: OpsUrl;
-  constructor(private httpsvr: HttpService ) {
+export   class DicBaseOps{
+
+  constructor() {
   }
 
- onDelete(arg: T): Observable<boolean> {
+ onDelete<T>(arg: T): Observable<boolean> {
     return this.httpsvr.onHttpGet(this.opsUrl.deleteUrl, arg).pipe(
       map(result => {
         if (result === 'fail') {
@@ -27,14 +27,14 @@ export abstract  class DicBaseOps implements  IBaseOpsService<T, E  > {
     );
   }
 
-  abstract  onDetail(arg: T | E) {
-  }
+   onDetail(arg: T | E) {
+   }
 
  onInsert(arg: T): Observable<string> {
    return this.httpsvr.onHttpPost(this.opsUrl.insertUrl, arg);
   }
 
-  onQuery(queryParams: any): Observable<Array<E | T>> {
+  onQuery(queryParams: any): Observable<Array<E>> {
     return this.httpsvr.onHttpGet(this.opsUrl.queryUrl, queryParams);
   }
 

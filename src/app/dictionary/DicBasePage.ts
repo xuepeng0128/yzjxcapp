@@ -4,14 +4,14 @@ import {PayKind} from '../entity/PayKind';
 import {NzMessageService} from 'ng-zorro-antd';
 import {flatMap, map} from 'rxjs/operators';
 import {MSG_DELETE_ERROR, MSG_DELETE_SUCCESS, MSG_SAVE_ERROR, MSG_SAVE_SUCCESS} from '../shared/SysMessage';
-import {IPage} from '../shared/BaseDicOps';
-import {DicBaseOps} from './service/DicBaseOps';
+
 
 export abstract class DicBasePage<T, E> {
   protected opsDic: T;
   protected pageState: 'browse' | 'add' | 'edit' = 'browse';
+  protected queryParams;
   dicList$: Observable<Array<E>>;
-  constructor(private dicSvr: any & DicBaseOps<T, E> , public message: NzMessageService  ) {
+  constructor(private dicSvr: any  , public message: NzMessageService  ) {
   }
   protected queryList = () => {
     this.dicList$ = this.dicSvr.onQuery(this.queryParams);
